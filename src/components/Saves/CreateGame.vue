@@ -2,7 +2,17 @@
   <div>
     <base-button @click="$emit('save-menu')">Return</base-button>
     <hr style="background-color: white" />
-    <div  class="flex" ><input type="text" placeholder="Character Name" /></div>
+    <div class="flex">
+      <input
+        :v-model="characterName"
+        type="text"
+        placeholder="Character Name"
+      />
+    </div>
+    <hr style="background-color: white" />
+    <div class="flex">
+      <input :v-model="townName" type="text" placeholder="Town Name" />
+    </div>
     <hr style="background-color: white" />
     <p>Select Trait</p>
     <div class="flex">
@@ -28,15 +38,21 @@
 </template>
 
 <script>
+import Save from "./../Constructors/Saves.vue";
+
 export default {
   data() {
     return {
       selectedTrait: null,
+      characterName: "",
+      townName: "",
     };
   },
   methods: {
-      createGame(){
-      }
+    createGame() {
+      const Game = new Save(this.characterName, this.townName);
+      this.$emit("game-created", Game);
+    },
   },
 };
 </script>

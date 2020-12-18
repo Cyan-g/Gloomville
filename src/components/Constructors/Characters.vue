@@ -1,16 +1,17 @@
 <script>
-class Character {
-  constructor(character = {}) {
-    this.name = "name";
+export default class Character {
+  constructor(name) {
+    this.name = name;
     this.trait = "trait";
+    this.level = 1;
     this.strength = 3;
     this.stress = 0;
     this.perception = 3;
     this.health = 10;
     this.spellslots = 2;
-    this.spellpower = 1;
-    this.spellRes = 1;
-    this.armor = 1;
+    this.spellpower = 0;
+    this.spellRes = 0;
+    this.armor = 0;
     this.evasion = 3;
     this.spellList = new Array();
   }
