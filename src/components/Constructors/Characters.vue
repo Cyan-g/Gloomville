@@ -2,6 +2,7 @@
 export default class Character {
   constructor(name) {
     this.name = name;
+    this.experience = 0;
     this.trait = "trait";
     this.level = 1;
     this.strength = 3;

@@ -1,17 +1,28 @@
 <template>
   <div>
-    <base-button @click="$emit('save-menu')">Return</base-button>
-    <hr style="background-color: white" />
+    <p>Difficulty</p>
     <div class="flex">
-      <input
-        :v-model="characterName"
-        type="text"
-        placeholder="Character Name"
-      />
+      <base-button
+        :class="{ selected: difficulty === 1 }"
+        @click="difficulty = 1"
+        >Normal</base-button
+      ><base-button
+        :class="{ selected: difficulty === 2 }"
+        @click="difficulty = 2"
+        >Hard</base-button
+      ><base-button
+        :class="{ selected: difficulty === 3 }"
+        @click="difficulty = 3"
+        >Hardcore</base-button
+      >
     </div>
     <hr style="background-color: white" />
     <div class="flex">
-      <input :v-model="townName" type="text" placeholder="Town Name" />
+      <input v-model="characterName" type="text" placeholder="Character Name" />
+    </div>
+    <hr style="background-color: white" />
+    <div class="flex">
+      <input v-model="townName" type="text" placeholder="Town Name" />
     </div>
     <hr style="background-color: white" />
     <p>Select Trait</p>
@@ -43,6 +54,7 @@ import Save from "./../Constructors/Saves.vue";
 export default {
   data() {
     return {
+      difficulty: 1,
       selectedTrait: null,
       characterName: "",
       townName: "",
@@ -50,7 +62,8 @@ export default {
   },
   methods: {
     createGame() {
-      const Game = new Save(this.characterName, this.townName);
+      let Game = new Save(this.characterName, this.townName);
+      console.log(JSON.stringify(Game));
       this.$emit("game-created", Game);
     },
   },

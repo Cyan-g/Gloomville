@@ -4,6 +4,7 @@ import Town from "./Towns.vue";
 
 export default class Save {
   constructor(charactername, townname) {
+    this.gold = 200; //Start Gold
     this.dayCount = 0;
     this.character = new Character(charactername);
     this.town = new Town(townname);

@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    props: ['title','dayCount']
+    props: ['title','dayCount',]
 }
 </script>
 
