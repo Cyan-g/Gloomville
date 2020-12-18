@@ -62,4 +62,7 @@ export default {
   text-align: center;
   color: lightgray;
 }
+.flex{
+  display:flex;
+}
 </style>

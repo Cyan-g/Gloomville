@@ -15,4 +15,7 @@ div {
   border: 3px solid white;
   border-radius: 5px;
 }
+div:hover{
+    background-color: rgba(66,66,66,0.5);
+}
 </style>
