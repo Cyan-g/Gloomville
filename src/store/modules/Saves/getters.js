@@ -3,6 +3,6 @@ export default {
         return state.saveList
     },
     getSave(state,id){
-        return state.saveList.find(save => save.id === id)
+        return state.saveList.find(save => save.ID === id)
     }
 }
