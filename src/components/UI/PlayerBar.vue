@@ -5,7 +5,7 @@
       <div class="bar" id="Stress">{{Game.character.stress}}/{{10}}</div>
       <div class="bar" id="Exp">{{Game.character.experience}}/{{Game.character.level * 10}}</div>
     </div>
-    <base-button>Gold: <br>{{Game.gold}}</base-button>
+    <base-badge>Gold: <br>{{Game.gold}}</base-badge>
   </div>
 </template>
 

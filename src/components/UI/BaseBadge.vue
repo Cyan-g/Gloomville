@@ -6,7 +6,7 @@
 
 <style scoped>
 div {
-  width: 8rem;
+  width: fit-content;
   cursor: pointer;
   background-color: black;
   color: white;
@@ -14,8 +14,5 @@ div {
   display: block;
   border: 3px solid white;
   border-radius: 5px;
-}
-div:hover{
-    background-color: rgba(66,66,66,0.5);
 }
 </style>
