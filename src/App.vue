@@ -8,6 +8,7 @@
 <script>
 import TheHeader from "./components/UI/TheHeader.vue";
 import SaveList from "./components/Saves/SaveList";
+import BaseBadge from './components/UI/BaseBadge.vue';
 
 export default {
   methods: {
@@ -16,6 +17,7 @@ export default {
   components: {
     TheHeader,
     SaveList,
+    BaseBadge,
   },
   computed:{
     theState(){
