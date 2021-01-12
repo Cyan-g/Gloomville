@@ -1,6 +1,6 @@
 <template>
   <h1>Gloomville</h1>
-  <base-badge v-if="isSaveList">Menu</base-badge>
+  <base-button v-if="isSaveList" @click="$store.dispatch('changeState','save-list')">Menu</base-button>
 </template>
 
 <script>

@@ -1,8 +1,9 @@
 <template>
-  <div v-if="saveList.length > 0">
-    <save-item :v-for="save in saveList">{{save}}</save-item>
+  <div  v-if="saveList.length > 0">
+    <save-item v-for="save in saveList" :key="save.ID" :save="save"></save-item>
+    <hr/>
   </div>
-  <div id="newGame"><base-badge>New Game</base-badge></div>
+  <div><base-badge  id="newGame" @click="$store.dispatch('changeState','save-form')">New Game</base-badge></div>
 </template>
 
 <script>
@@ -16,7 +17,8 @@ export default {
   },
   computed:{
       saveList(){
-          return this.$store.getters['saves/getSaveList'];
+        let list = this.$store.getters['saves/getSaveList'];
+          return list;
       }
   },
 };
@@ -24,7 +26,8 @@ export default {
 
 <style scoped>
 #newGame{
-  display: flex;
-  align-content: str;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
 }
 </style>

@@ -7,7 +7,8 @@
 
 <script>
 import TheHeader from "./components/UI/TheHeader.vue";
-import SaveList from "./components/Saves/SaveList";
+import SaveForm from "./components/Saves/SaveForm.vue"
+import SaveList from "./components/Saves/SaveList.vue";
 import BaseBadge from './components/UI/BaseBadge.vue';
 
 export default {
@@ -18,6 +19,7 @@ export default {
     TheHeader,
     SaveList,
     BaseBadge,
+    SaveForm,
   },
   computed:{
     theState(){
@@ -37,5 +39,13 @@ export default {
 }
 .flex{
   display:flex;
+}
+
+.highlighted {
+  background-color: white;
+  color: black;
+}
+hr{
+  background-color: white;
 }
 </style>
