@@ -7,7 +7,6 @@
 <style scoped>
 div {
   width: fit-content;
-  cursor: pointer;
   background-color: black;
   color: white;
   margin: 5px;

@@ -20,5 +20,11 @@ export default {
     },
     deleteCharacter(context,ID){
         context.commit('removeCharacter',ID);
+    },
+    persistCharacters(context){
+        window.localStorage.setItem('characterList',JSON.stringify(context.state.characterList));
+    },
+    loadCharacters(context){
+        context.commit('loadCharacters');
     }
 }

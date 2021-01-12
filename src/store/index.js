@@ -11,20 +11,28 @@ const store = createStore({
   state() {
     return {
       currentState: "save-list",
-      
-    currentSave: null,
-    currentCharacter: null,
+      currentSave: null,
+      currentCharacter: null,
     };
   },
   mutations: {
-    changeState(state,payload) {
+    changeState(state, payload) {
       state.currentState = payload;
+    },
+    loadGame(state, ID) {
+      let saveList = this.getters['saves/getSaveList']
+      if (ID === 0) { state.currentSave = null; state.currentCharacter = null; return; }
+      state.currentSave = saveList.find(save => save.ID === ID);
+      state.currentCharacter = state.currentSave.character;
     }
   },
   actions: {
-    changeState(context,payload) {
-      context.commit('changeState',payload);
+    changeState(context, payload) {
+      context.commit('changeState', payload);
     },
+    loadGame(context, ID) {
+      context.commit('loadGame', ID);
+    }
   },
   getters: {
     currentState(state) {

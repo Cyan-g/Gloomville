@@ -1,13 +1,24 @@
 <template>
-  <div  v-if="saveList.length > 0">
-    <save-item v-for="save in saveList" :key="save.ID" :save="save"></save-item>
-    <hr/>
+  <div v-if="saveList.length > 0">
+    <save-item
+      v-for="save in saveList"
+      :key="save.ID"
+      :save="save"
+      @click="$store.dispatch('loadGame', save.ID)"
+    ></save-item>
+    <hr />
   </div>
-  <div><base-badge  id="newGame" @click="$store.dispatch('changeState','save-form')">New Game</base-badge></div>
+  <div>
+    <base-badge
+      id="newGame"
+      @click="$store.dispatch('changeState', 'save-form')"
+      >New Game</base-badge
+    >
+  </div>
 </template>
 
 <script>
-import BaseBadge from '../UI/BaseBadge.vue';
+import BaseBadge from "../UI/BaseBadge.vue";
 import SaveItem from "./SaveItem.vue";
 
 export default {
@@ -15,17 +26,20 @@ export default {
     SaveItem,
     BaseBadge,
   },
-  computed:{
-      saveList(){
-        let list = this.$store.getters['saves/getSaveList'];
-          return list;
-      }
+  computed: {
+    saveList() {
+      let list = this.$store.getters["saves/getSaveList"];
+      return list;
+    },
+  },
+  created() {
+    this.$store.dispatch("saves/loadSaves");
   },
 };
 </script>
 
 <style scoped>
-#newGame{
+#newGame {
   display: block;
   margin: auto;
   margin-top: 10px;

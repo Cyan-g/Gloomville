@@ -1,9 +1,8 @@
 <template>
   <base-badge class="listItem"
     ><div>
-      {{ save.character.class }} {{ save.character.name }} | Day:{{
-        save.dayCount
-      }}
+      {{ save.character.name }} | {{ save.character.class }} level:
+      {{ save.character.level }} | Day: {{ save.dayCount }}
     </div>
     <base-button id="delete" @click="deleteSave()"
       >Delete
@@ -30,9 +29,13 @@ export default {
   height: 2rem;
   margin-top: 5px;
 }
-#delete{
-    position: relative;
-    left: 90%;
-    bottom: 60%;
+.listItem:hover{
+  background-color: white;
+  color: black;
+}
+#delete {
+  position: relative;
+  left: 90%;
+  bottom: 60%;
 }
 </style>

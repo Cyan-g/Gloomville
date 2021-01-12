@@ -1,6 +1,6 @@
 <template>
   <h1>Gloomville</h1>
-  <base-button v-if="isSaveList" @click="$store.dispatch('changeState','save-list')">Menu</base-button>
+  <base-button v-if="isSaveList" @click="returnToMenu()">Menu</base-button>
 </template>
 
 <script>
@@ -8,8 +8,15 @@ export default {
   computed: {
     isSaveList() {
       return this.$store.getters.currentState !== "save-list";
-    },
+    }
   },
+    methods:{
+      returnToMenu(){
+        this.$store.dispatch('loadGame', 0); //calling loadGame 0 sets the currently active Game to null
+        this.$store.dispatch('saves/persistSaves');
+        this.$store.dispatch('changeState','save-list')
+      }
+    }
 };
 </script>
 
