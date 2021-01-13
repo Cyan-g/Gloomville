@@ -10,6 +10,7 @@ import TheHeader from "./components/UI/TheHeader.vue";
 import SaveForm from "./components/Saves/SaveForm.vue"
 import SaveList from "./components/Saves/SaveList.vue";
 import BaseBadge from './components/UI/BaseBadge.vue';
+import TheTown from './components/Town/TheTown.vue';
 
 export default {
   methods: {
@@ -20,6 +21,7 @@ export default {
     SaveList,
     BaseBadge,
     SaveForm,
+    TheTown
   },
   computed:{
     theState(){

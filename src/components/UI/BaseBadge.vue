@@ -7,6 +7,7 @@
 <style scoped>
 div {
   width: fit-content;
+  padding: 1px;
   background-color: black;
   color: white;
   margin: 5px;

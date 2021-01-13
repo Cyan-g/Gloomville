@@ -28,4 +28,7 @@ h1 {
   background-color: white;
   color: black;
 }
+template{
+  min-width: 30rem;
+}
 </style>

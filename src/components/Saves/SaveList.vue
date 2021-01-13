@@ -9,22 +9,20 @@
     <hr />
   </div>
   <div>
-    <base-badge
+    <base-button
       id="newGame"
       @click="$store.dispatch('changeState', 'save-form')"
-      >New Game</base-badge
+      >New Game</base-button
     >
   </div>
 </template>
 
 <script>
-import BaseBadge from "../UI/BaseBadge.vue";
 import SaveItem from "./SaveItem.vue";
 
 export default {
   components: {
     SaveItem,
-    BaseBadge,
   },
   computed: {
     saveList() {

@@ -1,18 +1,17 @@
 import { createStore } from 'vuex';
 
 import savesModule from './modules/Saves/index.js'
-import characterModule from './modules/Characters/index.js'
+import townModule from './modules/Town/index.js'
 
 const store = createStore({
   modules: {
     saves: savesModule,
-    characters: characterModule
+    town: townModule,
   },
   state() {
     return {
       currentState: "save-list",
       currentSave: null,
-      currentCharacter: null,
     };
   },
   mutations: {
@@ -21,14 +20,15 @@ const store = createStore({
     },
     loadGame(state, ID) {
       let saveList = this.getters['saves/getSaveList']
-      if (ID === 0) { state.currentSave = null; state.currentCharacter = null; return; }
+      if (ID === 0) { state.currentSave = null; return; }
       state.currentSave = saveList.find(save => save.ID === ID);
-      state.currentCharacter = state.currentSave.character;
+      this.dispatch('changeState','the-town');
     }
   },
   actions: {
-    changeState(context, payload) {
-      context.commit('changeState', payload);
+    changeState(context, newState) {
+      console.log('Template:',newState);
+      context.commit('changeState', newState);
     },
     loadGame(context, ID) {
       context.commit('loadGame', ID);
@@ -37,7 +37,10 @@ const store = createStore({
   getters: {
     currentState(state) {
       return state.currentState;
-    }
+    },
+    currentSave(state){
+      return state.currentSave;
+    },
   }
 });
 

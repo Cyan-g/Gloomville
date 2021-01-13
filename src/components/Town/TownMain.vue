@@ -1,0 +1,48 @@
+<template>
+  <hr />
+  <div class="flex" style="max-height: 90%">
+    <div id="left" class="flex">
+      <base-button>{{ save.character.name }}</base-button>
+      <base-button>Inventory</base-button>
+      <base-button>Academy</base-button>
+    </div>
+    <div id="right" class="flex">
+      <base-badge style="border: none; padding: 4px">Day: {{ save.dayCount }}</base-badge>
+      <base-button>Shop</base-button>
+      <base-button>Smith</base-button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  computed: {
+    save() {
+      return this.$store.getters["currentSave"];
+    },
+  },
+};
+</script>
+
+<style scoped>
+#left {
+    width: 50%;
+    min-width: 8rem;
+  flex-direction: column;
+}
+#right {
+    direction: rtl;
+    min-width: 8rem;
+    width: 50%;
+  flex-direction: column;
+}
+#right>*{
+    margin-right: 5%;
+    width: 5rem;
+
+}
+#left>*{
+    margin-left: 5%;
+    width: 5rem;
+}
+</style>
