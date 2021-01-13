@@ -50,4 +50,32 @@ export default {
 hr{
   background-color: white;
 }
+.common{
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 1px;
+  border: solid 3px;
+  border-color: lightgray;
+}
+.uncommon{
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 1px;
+  border: solid 3px;
+  border-color: rgba(100,100,250,1);
+}
+.rare{
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 1px;
+  border: solid 3px;
+  border-color: rgba(250,190,100,1);
+}
+.legendary{
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 1px;
+  border: solid 3px;
+  border-color: rgba(140,10,140,1);
+}
 </style>

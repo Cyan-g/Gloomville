@@ -1,12 +1,20 @@
 export default {
-    addSave(state,newSave){
+    addSave(state, newSave) {
         state.saveList.push(newSave);
     },
-    removeSave(state,ID){
+    removeSave(state, ID) {
         let index = state.saveList.indexOf(state.saveList.find(save => save.ID === ID))
         state.saveList.splice(index);
     },
-    loadSaves(state){
+    loadSaves(state) {
         state.saveList = JSON.parse(window.localStorage.getItem('saveList'));
+    },
+    updateCharacter(state, payload) {
+        let save = state.saveList.find(save => save.ID === payload.ID);
+        save.character = payload.character;
+    },
+    updateInventory(state, payload) {
+        let save = state.saveList.find(save => save.ID === payload.ID);
+        save.inventory = payload.inventory;
     }
 }

@@ -4,7 +4,7 @@
       {{ save.character.name }} | {{ save.character.class }} level:
       {{ save.character.level }} | Day: {{ save.dayCount }}
     </div>
-    <base-button id="delete" @click="deleteSave()"
+    <base-button id="delete" @click.stop="deleteSave()"
       >Delete
     </base-button></base-badge
   >

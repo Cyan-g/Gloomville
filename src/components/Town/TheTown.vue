@@ -1,5 +1,5 @@
 <template>
-    <component :is="townState"></component>
+    <component :is="townState" :save="$store.getters['currentSave']"></component>
 </template>
 
 <script>

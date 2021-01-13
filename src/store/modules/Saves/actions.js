@@ -1,3 +1,4 @@
+
 export default {
     createSave(context, payload) {
         let ID = new Date;
@@ -8,29 +9,72 @@ export default {
 
                 name: payload.name,
                 level: 1,
-                experience: 0,
                 class: payload.class,
-                
-                str: 10,
-                dex: 10,
-                int: 10,
-                con: 10,
-    
-                health: 100,
-                mana: 20,
-            }
+
+                stats: {
+                    experience: 0,
+                    nextlevel: 100,
+
+                    armor: 1,
+                    resistance: 1,
+                    evasion: 1,
+                    health: 100,
+                    spellslots: 3,
+
+                    intelligence: 10,
+                    strength: 10,
+
+                    crit: 1,
+
+                },
+
+            },
+            inventory: {
+                bag: [],
+                size: 5
+            },
+            gold: 100,
+
+
         }
+
         context.commit('addSave', newSave);
+
+        this.dispatch('inventory/addItem', {
+            ID: ID,
+            item: {
+                name: 'Healing Potion',
+                count: 2,
+                description: 'A small Vial of refreshing liquid.',
+            },
+        })
+
+        this.dispatch('inventory/addItem', {
+            ID: ID,
+            item: {
+                name: 'Sword',
+                type: 'weapon',
+                rarity:'rare',
+                description: 'A sturdy blade of simple design, gets the job done.',
+            },
+        })
+
         this.dispatch('saves/persistSaves');
     },
-    deleteSave(context,ID){
-        context.commit('removeSave',ID);
+    deleteSave(context, ID) {
+        context.commit('removeSave', ID);
         this.dispatch('saves/persistSaves');
     },
-    persistSaves(context){
-        window.localStorage.setItem('saveList',JSON.stringify(context.state.saveList));
+    persistSaves(context) {
+        window.localStorage.setItem('saveList', JSON.stringify(context.state.saveList));
     },
-    loadSaves(context){
+    loadSaves(context) {
         context.commit('loadSaves');
+    },
+    updateCharacter(context, payload) {
+        context.commit('updateCharacter', payload);
+    },
+    updateInventory(context,payload){
+        context.commit('updateInventory', payload);
     }
 }

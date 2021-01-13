@@ -8,7 +8,7 @@
 div {
   width: fit-content;
   cursor: pointer;
-  padding: 1px;
+  padding: 4px;
   background-color: black;
   color: white;
   margin: 5px;

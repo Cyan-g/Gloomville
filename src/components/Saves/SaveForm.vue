@@ -60,6 +60,7 @@ hr {
   background-color: white;
 }
 input {
+  height: 2rem;
   width: 30%;
   background-color: black;
   color: white;
