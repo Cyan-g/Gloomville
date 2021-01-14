@@ -28,6 +28,13 @@ export default {
                     crit: 1,
 
                 },
+                gear: {
+                    head:{},
+                    chest:{},
+                    weapon:{},
+                    feet:{},
+                    accessoiry:{}
+                }
 
             },
             inventory: {

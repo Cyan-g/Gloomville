@@ -1,13 +1,11 @@
 import { createStore } from 'vuex';
 
 import savesModule from './modules/Saves/index.js'
-import townModule from './modules/Town/index.js'
 import inventoryActions from './modules/inventory.js'
 
 const store = createStore({
   modules: {
     saves: savesModule,
-    town: townModule,
     inventory: inventoryActions,
   },
   state() {

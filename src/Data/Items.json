@@ -3,13 +3,15 @@
         {
             "name": "Healing Potion",
             "count": 2,
-            "description": "A small Vial of refreshing liquid."
+            "description": "A small Vial of refreshing liquid.",
+            "value": 5
         },
         {
             "name": "Sword",
             "type": "weapon",
             "rarity": "rare",
             "description": "A sturdy blade of simple design, gets the job done.",
+            "value": 20 ,
             "mods": {
                 "strength": 1
             }

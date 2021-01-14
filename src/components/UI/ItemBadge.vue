@@ -1,5 +1,5 @@
 <template >
-  <div :class="item.rarity">
+  <div :class="item.rarity" v-if="item">
     <span v-if="item.type === 'item'">{{ item.count }}</span> {{ item.name }}<span v-if="item.count > 1">'s</span>
   </div>
 </template>

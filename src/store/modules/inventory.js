@@ -10,23 +10,8 @@ export default {
 
                 //Item add mechanism
                 payload.item = ItemList.items.find(item => item.name === payload.item);
-                
-                if (payload.item.type === 'item') {
-                    if(inventory.bag.includes(item => item.name === payload.item.name)){
-                        let index = inventory.bag.indexOf(item => item.name === payload.item.name)
-                    inventory.bag[index].count += payload.count || 1;
-                    }
-                    else{let newItem = {
-                        ID: setTimeout(function(){return new Date;}, 1000),
-                        name: payload.item.name || 'default Name',
-                        type: payload.item.type || 'item',
-                        count: payload.item.count || 1,
-                        rarity: payload.item.rarity || 'common',
-                        description: payload.item.description || 'default description',
 
-                    }
-                    inventory.bag.push(newItem);}
-                }else{
+                if (payload.item.type !== 'item' || !inventory.bag.includes(item => item.name === payload.item.name)){
                     let newItem = {
                         ID: setTimeout(function(){return new Date;}, 1000),
                         name: payload.item.name || 'default Name',
@@ -34,10 +19,18 @@ export default {
                         count: payload.item.count || 1,
                         rarity: payload.item.rarity || 'common',
                         description: payload.item.description || 'default description',
-
+                        value: payload.item.value || 10
                     }
+                    
                     inventory.bag.push(newItem);
-                }
+                }else{
+                    
+                    let index = inventory.bag.indexOf(item => item.name === payload.item.name)
+                    inventory.bag[index].count += payload.count || 1;}
+                    
+
+                
+
             } else {
                 alert("inventory is full");
             }

@@ -1,5 +1,0 @@
-export default {
-    getState(state){
-        return state.townState;
-    }
-}
