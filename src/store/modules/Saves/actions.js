@@ -29,11 +29,11 @@ export default {
 
                 },
                 gear: {
-                    head:{},
-                    chest:{},
-                    weapon:{},
-                    feet:{},
-                    accessoiry:{}
+                    head:null,
+                    chest:null,
+                    weapon:null,
+                    feet:null,
+                    accessoiry:null
                 }
 
             },

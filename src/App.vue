@@ -58,27 +58,27 @@ hr{
   border-radius: 3px;
   margin: 1px;
   border: solid 3px;
-  border-color: lightgray;
+  border-color: lightgray !important;
 }
 .uncommon{
   cursor: pointer;
   border-radius: 3px;
   margin: 1px;
   border: solid 3px;
-  border-color: rgba(100,100,250,1);
+  border-color: rgba(100,100,250,1) !important;
 }
 .rare{
   cursor: pointer;
   border-radius: 3px;
   margin: 1px;
   border: solid 3px;
-  border-color: rgba(250,190,100,1);
+  border-color: rgba(250,190,100,1) !important;
 }
 .legendary{
   cursor: pointer;
   border-radius: 3px;
   margin: 1px;
   border: solid 3px;
-  border-color: rgba(140,10,140,1);
+  border-color: rgba(140,10,140,1) !important;
 }
 </style>

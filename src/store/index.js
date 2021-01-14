@@ -41,6 +41,22 @@ const store = createStore({
     currentSave(state){
       return state.currentSave;
     },
+    modifiedStats(state){
+      let save = state.currentSave;
+      let stats = save.character.stats;
+      let gear = save.character.gear;
+
+      let modified = JSON.parse(JSON.stringify(stats));
+
+      Object.entries(gear).forEach(slot =>{
+        Object.entries(slot).forEach(entry =>{
+          const [stat,value] = entry;
+          modified[stat] += value || 0;
+        })
+      })
+      return modified;
+
+  }
   }
 });
 

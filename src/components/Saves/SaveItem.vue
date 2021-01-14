@@ -23,19 +23,17 @@ export default {
 
 <style scoped>
 .listItem {
-  display: block;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin: auto;
   width: 90%;
-  height: 2rem;
+  height: 5vh;
   margin-top: 5px;
 }
 .listItem:hover{
   background-color: white;
   color: black;
-}
-#delete {
-  position: relative;
-  left: 90%;
-  bottom: 60%;
+  align-items: center;
 }
 </style>

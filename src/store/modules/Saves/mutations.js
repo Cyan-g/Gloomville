@@ -12,9 +12,13 @@ export default {
     updateCharacter(state, payload) {
         let save = state.saveList.find(save => save.ID === payload.ID);
         save.character = payload.character;
+        
+        this.dispatch('saves/persistSaves');
     },
     updateInventory(state, payload) {
         let save = state.saveList.find(save => save.ID === payload.ID);
         save.inventory = payload.inventory;
-    }
+        
+        this.dispatch('saves/persistSaves');
+    },
 }

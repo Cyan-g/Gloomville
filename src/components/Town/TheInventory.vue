@@ -15,6 +15,7 @@
       </div>
       <div id="interface">
         <item-interface
+          @deselected="selectItem(null)"
           @destroyed="selectedItem = null"
           v-if="selectedItem"
           :item="selectedItem"
@@ -79,8 +80,8 @@ export default {
   border-radius: 1rem;
 }
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 #interface {
   display: block;

@@ -1,27 +1,38 @@
 <template>
-  <div id="container">
-    <base-badge id="inventory">
-      <div id="list">
-        <item-badge id="head" :item="save.character.gear.head" @click="selectItem(save.character.gear.head)"></item-badge>
-        <item-badge id="chest" :item="save.character.gear.chest" @click="selectItem(save.character.gear.chest)"></item-badge>
-        <item-badge id="weapon" :item="save.character.gear.weapon" @click="selectItem(save.character.gear.weapon)"></item-badge>
-        <item-badge id="accessoiry" :item="save.character.gear.accessoiry" @click="selectItem(save.character.gear.accessoiry)"></item-badge>
-        <item-badge id="feet" :item="save.character.gear.feet" @click="selectItem(save.character.gear.feet)"></item-badge>
+  <base-badge id="container">
+    <div id="gear">
+      <div id="character">
+        {{ save.character.name }}
+        <div
+          v-for="(item, slot) in save.character.gear"
+          :key="slot"
+          class="list-item"
+        >
+          {{ slot.charAt(0).toUpperCase() + slot.slice(1) }}:<base-badge
+            :class="item ? `${item.rarity} gearSlot` : 'gearSlot'"
+            ><item-badge
+              :isEquipped="true"
+              :item="save.character.gear[slot]"
+              @click="selectItem(save.character.gear[slot])"
+            ></item-badge
+          ></base-badge>
+        </div>
       </div>
       <div id="interface">
         <item-interface
+          @deselected="selectItem(null)"
           @destroyed="selectedItem = null"
           v-if="selectedItem"
           :item="selectedItem"
+          :isEquipped="true"
         ></item-interface>
-        <hr style="width: 100%" />
       </div>
-        <div style="margin-top: 5px">
-          {{ save.inventory.bag.length }}/{{ save.inventory.size }}
-        </div>
       <base-button @click="$emit('close')" id="close">x</base-button>
-    </base-badge>
-  </div>
+    </div>
+    <div id="stats">
+      <hr style="width: 100%" />
+    </div>
+  </base-badge>
 </template>
 
 <script>
@@ -38,7 +49,7 @@ export default {
   },
   methods: {
     selectItem(item) {
-      this.selectedItem = item
+      this.selectedItem = item;
     },
   },
 };
@@ -47,23 +58,36 @@ export default {
 <style scoped>
 #container {
   position: fixed;
+  display: flex;
+  flex-direction: column;
   top: 11%;
   left: 22%;
   width: 55vw;
   height: 70vh !important;
 }
-#inventory {
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gearSlot {
+  width: 40%;
+  height: 1rem;
+  cursor: pointer;
+}
+#gear {
   display: flex;
   position: relative;
   width: 100%;
   height: 100%;
 }
-#list {
+#character {
   height: 100%;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 60%;
   border-right: 3px solid white;
+  justify-content: space-evenly;
 }
 #close {
   position: absolute;
@@ -72,6 +96,10 @@ export default {
   height: 1rem;
   width: 1rem;
   border-radius: 1rem;
+}
+#stats {
+  width: 100%;
+  height: 30%;
 }
 #interface {
   display: block;
