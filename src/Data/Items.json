@@ -1,0 +1,19 @@
+{
+    "items": [
+        {
+            "name": "Healing Potion",
+            "count": 2,
+            "description": "A small Vial of refreshing liquid."
+        },
+        {
+            "name": "Sword",
+            "type": "weapon",
+            "rarity": "rare",
+            "description": "A sturdy blade of simple design, gets the job done.",
+            "mods": {
+                "strength": 1
+            }
+        }
+    ],
+    "weapons": []
+}

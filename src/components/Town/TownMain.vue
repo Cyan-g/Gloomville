@@ -1,9 +1,11 @@
 <template>
   <hr />
-  <div class="flex" style="max-height: 90%; margin-top: 3rem">
+  <div class="flex" id="container">
     <div id="left" class="flex">
       <base-button>{{ save.character.name }}</base-button>
-      <base-button @click="changeWindow('the-inventory')">Inventory</base-button>
+      <base-button @click="changeWindow('the-inventory')"
+        >Inventory</base-button
+      >
       <base-button>Academy</base-button>
     </div>
     <div id="right" class="flex">
@@ -16,7 +18,11 @@
   </div>
   <base-button style="margin: auto; width: 6rem">Embark</base-button>
   <player-bar :stats="save.character.stats"></player-bar>
-  <component @close="changeWindow(null)" :is="currentWindow" :save="save"></component>
+  <component
+    @close="changeWindow(null)"
+    :is="currentWindow"
+    :save="save"
+  ></component>
 </template>
 
 <script>
@@ -39,23 +45,31 @@ export default {
 </script>
 
 <style scoped>
+#container {
+  max-height: 90%;
+  margin-top: 3rem;
+  height: 50%;
+}
 #left {
   width: 50%;
   min-width: 8rem;
   flex-direction: column;
+  justify-content: space-between;
 }
 #right {
   direction: rtl;
   min-width: 8rem;
   width: 50%;
   flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
 }
 #right > * {
   margin-right: 5%;
-  width: 5rem;
+  width: 30%;
 }
 #left > * {
   margin-left: 5%;
-  width: 5rem;
+  width: 30%;
 }
 </style>

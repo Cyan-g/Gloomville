@@ -1,4 +1,5 @@
 
+
 export default {
     createSave(context, payload) {
         let ID = new Date;
@@ -42,21 +43,13 @@ export default {
 
         this.dispatch('inventory/addItem', {
             ID: ID,
-            item: {
-                name: 'Healing Potion',
-                count: 2,
-                description: 'A small Vial of refreshing liquid.',
-            },
+            item: "Healing Potion",
+            count: 2
         })
 
         this.dispatch('inventory/addItem', {
             ID: ID,
-            item: {
-                name: 'Sword',
-                type: 'weapon',
-                rarity:'rare',
-                description: 'A sturdy blade of simple design, gets the job done.',
-            },
+            item: "Sword",
         })
 
         this.dispatch('saves/persistSaves');

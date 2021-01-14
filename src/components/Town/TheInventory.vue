@@ -50,16 +50,16 @@ export default {
 <style scoped>
 #container {
   position: fixed;
-  top: 2%;
-  left: 20%;
-  width: 60%;
-  height: 90%;
+  top: 11%;
+  left: 22%;
+  width: 55vw;
+  height: 70vh !important;
 }
 #inventory {
   display: flex;
   position: relative;
   width: 100%;
-  height: inherit;
+  height: 100%;
 }
 #list {
   height: 100%;

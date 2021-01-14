@@ -1,3 +1,5 @@
+import ItemList from '../../Data/Items.json'
+
 
 export default {
     namespaced: true,
@@ -5,10 +7,14 @@ export default {
         addItem(context, payload) {
             let inventory = context.rootGetters['saves/getSaveList'].find(save => save.ID === payload.ID).inventory;
             if (inventory.bag.length < inventory.size) {
+
+                //Item add mechanism
+                payload.item = ItemList.items.find(item => item.name === payload.item);
+                
                 if (payload.item.type === 'item') {
                     if(inventory.bag.includes(item => item.name === payload.item.name)){
                         let index = inventory.bag.indexOf(item => item.name === payload.item.name)
-                    inventory.bag[index].count += payload.item.count || 1;
+                    inventory.bag[index].count += payload.count || 1;
                     }
                     else{let newItem = {
                         ID: setTimeout(function(){return new Date;}, 1000),

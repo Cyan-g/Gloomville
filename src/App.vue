@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100%;">
     <the-header></the-header>
     <component :is="theState"></component>
   </div>
@@ -38,6 +38,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: lightgray;
+  height: 95%;
+  overflow: hidden;
+  margin: 0;
 }
 .flex{
   display:flex;
